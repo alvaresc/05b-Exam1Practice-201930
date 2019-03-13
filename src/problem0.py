@@ -9,8 +9,8 @@ These problems illustrate concepts that previous problems have not emphasized:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Sam Alvares.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import testing_helper
@@ -25,7 +25,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the green doc-string for the:
+# DONE: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -189,7 +189,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -207,6 +207,11 @@ def problem0a(n):
     #        ASK FOR HELP if you do not understand this hint.
     # -------------------------------------------------------------------------
 
+    sumdig = sum_of_digits(n)
+    if sumdig % 2 == 1:
+        return True
+    else:
+        return False
 
 def run_test_problem0b():
     """ Tests the   problem0b   function. """
@@ -271,6 +276,8 @@ def problem0b(n):
     #    **  use (call) the   is_prime   function that is DEFINED ABOVE.
     ###########################################################################
     # ------------------------------------------------------------------
+
+
 
 
 def run_test_problem0c():
@@ -339,6 +346,19 @@ def problem0c(circle, n, window):
     ###########################################################################
     # -------------------------------------------------------------------------
 
+    circle.attach_to(window)
+    x_pos = circle.center.x
+    y_pos = circle.center.y
+    rad = circle.radius
+
+    for k in range(n):
+        x_pos = x_pos + 2*rad
+        circle = rg.Circle(rg.Point(x_pos,y_pos),rad)
+        circle.attach_to(window)
+
+
+
+    window.render()
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
