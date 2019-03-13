@@ -376,7 +376,12 @@ def problem1c(n):
     #    TIME ESTIMATE:   15 to 20 minutes.
     # -------------------------------------------------------------------------
 
-    for k in range():
+    total = 1
+    for k in range(n-1):
+        if is_prime(2+k):
+            total = total*(2+k)
+    return sum_of_digits(total)
+
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
