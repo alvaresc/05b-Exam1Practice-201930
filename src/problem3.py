@@ -47,64 +47,64 @@ def run_test_problem3a():
     #    DIFFICULTY:      4
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
-    # Window 1:
-    title = 'Problem 3a. Test 1: Start at (30, 30), 6 lines'
-    window1 = rg.RoseWindow(350, 200, title)
-
-    # Test 1 (it is on window 1):
-    point = rg.Point(30, 30)
-    expected = 36
-    answer = problem3a(window1, point, 6)
-    print()
-    print('Test 1 expected:', expected)
-    print('       actual:  ', answer)
-
-    window1.close_on_mouse_click()
-
-    # Window 2:
-    title = 'Problem 3a.  Test 2: Start at (80, 10), 9 lines.'
-    title += '  Test 3: Start at (30, 50), 3 lines.'
-    window2 = rg.RoseWindow(550, 200, title)
-
-    # Test 2 (it is on window 2):
-    point = rg.Point(80, 10)
-    expected = 75
-    answer = problem3a(window2, point, 9)
-    print()
-    print('Test 2 expected:', expected)
-    print('       actual:  ', answer)
-
-    # Test 3 (it is also on window 2):
-    point = rg.Point(30, 50)
-    expected = 9
-    answer = problem3a(window2, point, 3)
-    print()
-    print('Test 3 expected:', expected)
-    print('       actual:  ', answer)
-
-    window2.close_on_mouse_click()
-
-    # Window 3:
-    title = 'Problem 3a. Test 4: Start at (30, 30), 20 lines'
-    window3 = rg.RoseWindow(450, 300, title)
-
-    # Test 4 (it is on window 3):
-    point = rg.Point(30, 30)
-    expected = 218
-    answer = problem3a(window3, point, 20)
-    print()
-    print('Test 4 expected:', expected)
-    print('       actual:  ', answer)
-
-    # Test 5 (it is on window 3):
-    point = rg.Point(150, 30)
-    expected = 16
-    answer = problem3a(window3, point, 4)
-    print()
-    print('Test 5 expected:', expected)
-    print('       actual:  ', answer)
-
-    window3.close_on_mouse_click()
+    # # Window 1:
+    # title = 'Problem 3a. Test 1: Start at (30, 30), 6 lines'
+    # window1 = rg.RoseWindow(350, 200, title)
+    #
+    # # Test 1 (it is on window 1):
+    # point = rg.Point(30, 30)
+    # expected = 36
+    # answer = problem3a(window1, point, 6)
+    # print()
+    # print('Test 1 expected:', expected)
+    # print('       actual:  ', answer)
+    #
+    # window1.close_on_mouse_click()
+    #
+    # # Window 2:
+    # title = 'Problem 3a.  Test 2: Start at (80, 10), 9 lines.'
+    # title += '  Test 3: Start at (30, 50), 3 lines.'
+    # window2 = rg.RoseWindow(550, 200, title)
+    #
+    # # Test 2 (it is on window 2):
+    # point = rg.Point(80, 10)
+    # expected = 75
+    # answer = problem3a(window2, point, 9)
+    # print()
+    # print('Test 2 expected:', expected)
+    # print('       actual:  ', answer)
+    #
+    # # Test 3 (it is also on window 2):
+    # point = rg.Point(30, 50)
+    # expected = 9
+    # answer = problem3a(window2, point, 3)
+    # print()
+    # print('Test 3 expected:', expected)
+    # print('       actual:  ', answer)
+    #
+    # window2.close_on_mouse_click()
+    #
+    # # Window 3:
+    # title = 'Problem 3a. Test 4: Start at (30, 30), 20 lines'
+    # window3 = rg.RoseWindow(450, 300, title)
+    #
+    # # Test 4 (it is on window 3):
+    # point = rg.Point(30, 30)
+    # expected = 218
+    # answer = problem3a(window3, point, 20)
+    # print()
+    # print('Test 4 expected:', expected)
+    # print('       actual:  ', answer)
+    #
+    # # Test 5 (it is on window 3):
+    # point = rg.Point(150, 30)
+    # expected = 16
+    # answer = problem3a(window3, point, 4)
+    # print()
+    # print('Test 5 expected:', expected)
+    # print('       actual:  ', answer)
+    #
+    # window3.close_on_mouse_click()
 
     # -------------------------------------------------------------------------
     # TO DO: 2 (continued).
@@ -236,7 +236,7 @@ def problem3b(m, point1):
         :type point1: rg.Point
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -251,10 +251,21 @@ def problem3b(m, point1):
     # -------------------------------------------------------------------------
 
     window = rg.RoseWindow(400,650)
+    point1x = point1.x
+    point1y = point1.y
+    n = 3
+    thick_sum = problem3a(window, point1, n)
+    for k in range(m-1):
+        n = n+2
+        point1.y = point1y + 60*(k+1)
+        point1.x = point1x
+        thick_sum = thick_sum + problem3a(window, point1, n)
 
-    problem3a(window, point1, m)
 
     window.close_on_mouse_click()
+
+    return thick_sum
+
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
