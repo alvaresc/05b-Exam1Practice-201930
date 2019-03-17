@@ -37,80 +37,99 @@ def main():
 
 def run_test_problem2a():
     """ Tests the   problem2a  function. """
-    print()
-    print('--------------------------------------------------')
-    print('Testing the  problem2a  function:')
-    print('  See the graphics windows that pop up.')
-    print('--------------------------------------------------')
+#     print()
+#     print('--------------------------------------------------')
+#     print('Testing the  problem2a  function:')
+#     print('  See the graphics windows that pop up.')
+#     print('--------------------------------------------------')
+#
+#     # TWO tests on ONE window.
+#     title = 'Tests 1 & 2 of problem2a: '
+#     title += 'red to blue, then blank to green'
+#     window = rg.RoseWindow(450, 250, title)
+#
+#     circle = rg.Circle(rg.Point(100, 50), 30)
+#     rectangle = rg.Rectangle(rg.Point(100, 120), rg.Point(200, 170))
+#     rectangle.outline_color = 'blue'
+#     circle.fill_color = 'red'
+#     problem2a(circle, rectangle, window)
+#     window.continue_on_mouse_click()
+#
+#     circle = rg.Circle(rg.Point(300, 100), 50)
+#     rectangle = rg.Rectangle(rg.Point(300, 170), rg.Point(400, 120))
+#     rectangle.outline_color = 'green'
+#     problem2a(circle, rectangle, window)
+#     window.close_on_mouse_click()
+#
+#     # A third test on ANOTHER window.
+#     title = 'Test 3 of problem2a: yellow to black'
+#     window = rg.RoseWindow(400, 300, title)
+#
+#     circle = rg.Circle(rg.Point(100, 50), 30)
+#     rectangle = rg.Rectangle(rg.Point(100, 100), rg.Point(50, 250))
+#     rectangle.outline_color = 'black'
+#     circle.fill_color = 'yellow'
+#     problem2a(circle, rectangle, window)
+#     window.close_on_mouse_click()
+#
+#
+# def problem2a(circle, rectangle, window):
+#     """
+#     See   problem2a_picture.pdf   in this project for pictures
+#     that may help you better understand the following specification:
+#
+#     What comes in:
+#       -- An rg.Circle.
+#       -- An rg.Rectangle.
+#       -- An rg.RoseWindow.
+#     What goes out:  Nothing (i.e., None).
+#     Side effects:
+#       -- Draws the given rg.Circle and rg.Rectangle
+#            on the given rg.RoseWindow,
+#            then waits for the user to click the window.
+#       -- Then draws an rg.Line from the upper-right corner
+#            of the rg.Rectangle to its lower-left corner,
+#            with the line drawn as an arrow,
+#            then waits for the user to click the window.
+#       -- Changes the fill color of the given rg.Circle to the
+#            outline color of the given rg.Rectangle,
+#            then renders the window again
+#            (with no waiting for a click from the user this time).
+#       Must  ** NOT close **   the window.
+#
+#     Type hints:
+#       :type circle:    rg.Circle
+#       :type rectangle: rg.Rectangle
+#       :type window:    rg.RoseWindow
+#     """
+#     # -------------------------------------------------------------------------
+#     # DONE: 2. Implement and test this function.
+#     #          Tests have been written for you (above).
+#     # -------------------------------------------------------------------------
+#     # -------------------------------------------------------------------------
+#     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
+#     #    DIFFICULTY:      6
+#     #    TIME ESTIMATE:   10 to 15 minutes.
+#     # -------------------------------------------------------------------------
+#
+#     circle.attach_to(window)
+#     rectangle.attach_to(window)
+#     window.render()
+#
+#     window.continue_on_mouse_click()
+#
+#     p1 = rectangle.get_upper_right_corner()
+#     p2 = rectangle.get_lower_left_corner()
+#
+#     line = rg.Line(p1,p2)
+#     line.arrow = 'last'
+#     line.attach_to(window)
+#     window.render()
+#     window.continue_on_mouse_click()
+#
+#     circle.fill_color = rectangle.outline_color
+#     window.render()
 
-    # TWO tests on ONE window.
-    title = 'Tests 1 & 2 of problem2a: '
-    title += 'red to blue, then blank to green'
-    window = rg.RoseWindow(450, 250, title)
-
-    circle = rg.Circle(rg.Point(100, 50), 30)
-    rectangle = rg.Rectangle(rg.Point(100, 120), rg.Point(200, 170))
-    rectangle.outline_color = 'blue'
-    circle.fill_color = 'red'
-    problem2a(circle, rectangle, window)
-    window.continue_on_mouse_click()
-
-    circle = rg.Circle(rg.Point(300, 100), 50)
-    rectangle = rg.Rectangle(rg.Point(300, 170), rg.Point(400, 120))
-    rectangle.outline_color = 'green'
-    problem2a(circle, rectangle, window)
-    window.close_on_mouse_click()
-
-    # A third test on ANOTHER window.
-    title = 'Test 3 of problem2a: yellow to black'
-    window = rg.RoseWindow(400, 300, title)
-
-    circle = rg.Circle(rg.Point(100, 50), 30)
-    rectangle = rg.Rectangle(rg.Point(100, 100), rg.Point(50, 250))
-    rectangle.outline_color = 'black'
-    circle.fill_color = 'yellow'
-    problem2a(circle, rectangle, window)
-    window.close_on_mouse_click()
-
-
-def problem2a(circle, rectangle, window):
-    """
-    See   problem2a_picture.pdf   in this project for pictures
-    that may help you better understand the following specification:
-    
-    What comes in:
-      -- An rg.Circle.
-      -- An rg.Rectangle.
-      -- An rg.RoseWindow.
-    What goes out:  Nothing (i.e., None).
-    Side effects:
-      -- Draws the given rg.Circle and rg.Rectangle
-           on the given rg.RoseWindow,
-           then waits for the user to click the window.
-      -- Then draws an rg.Line from the upper-right corner
-           of the rg.Rectangle to its lower-left corner,
-           with the line drawn as an arrow,
-           then waits for the user to click the window.
-      -- Changes the fill color of the given rg.Circle to the
-           outline color of the given rg.Rectangle,
-           then renders the window again
-           (with no waiting for a click from the user this time).
-      Must  ** NOT close **   the window.
-
-    Type hints:
-      :type circle:    rg.Circle
-      :type rectangle: rg.Rectangle
-      :type window:    rg.RoseWindow
-    """
-    # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
-    #          Tests have been written for you (above).
-    # -------------------------------------------------------------------------
-    # -------------------------------------------------------------------------
-    # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
-    #    DIFFICULTY:      6
-    #    TIME ESTIMATE:   10 to 15 minutes.
-    # -------------------------------------------------------------------------
 
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
@@ -174,7 +193,7 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -183,6 +202,21 @@ def problem2b(rect, n, delta, win):
     #    TIME ESTIMATE:   15 to 25 minutes.
     # -------------------------------------------------------------------------
 
+    rect.attach_to(win)
+    p1 = rect.get_lower_left_corner()
+    p2 = rect.get_upper_right_corner()
+
+    for k in range(n):
+        rectangle = rg.Rectangle(p1,p2)
+        rectangle.attach_to(win)
+
+        p1.x = p1.x - delta
+        p1.y = p1.y + delta
+        p2.x = p2.x + delta
+        p2.y = p2.y - delta
+
+
+    win.render()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
